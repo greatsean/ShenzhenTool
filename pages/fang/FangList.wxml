@@ -30,8 +30,8 @@
       <text style='font-weight:bold;'>回执号</text>
     </view>
 
-    <block wx:for="{{lunhouData}}" wx:key="{{index + 1}}" wx:for-item="da">
-      <view class="lunhou-item">
+    <block wx:for="{{lunhouData}}" wx:key="{{LHMC_ID}}" wx:for-item="da">
+      <view class="lunhou-item" bindtap='doItemClick' data-item="{{da}}">
         <text>{{index + 1}}</text>
         <text>{{da.xingmShortStr}}</text>
         <text>{{da.PAIX}}</text>

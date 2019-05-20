@@ -8,6 +8,10 @@
   position: fixed;
   width: 100%;
   background: white;
+  border-bottom-color: gray;
+  border-bottom-width: 1rpx;
+  border-bottom-style: solid;
+  padding-bottom: 20rpx;
 }
 
 .picker {

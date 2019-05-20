@@ -5,10 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    titleTxt1: '分期金额（元）：',
-    titleTxt2: '分期数：',
-    titleTxt3: '一次性手续费（%）：',
-    titleTxt4: '每期手续费（%）：',
     calcType: 0,
     calcArray: ['分期', '复利'],
     v1: '',
@@ -83,21 +79,6 @@ Page({
 
   calcTypeChange: function(e) {
     const calcType = parseInt(e.detail.value);
-    if (calcType == 0) {
-      this.setData({
-        titleTxt1: '分期金额（元）：',
-        titleTxt2: '分期数：',
-        titleTxt3: '一次性手续费（%）：',
-        titleTxt4: '每期手续费（%）：'
-      });
-    } else if (calcType == 1) {
-      this.setData({
-        titleTxt1: '存入本金：',
-        titleTxt2: '存入期数：',
-        titleTxt3: '期利率（%）：',
-        titleTxt4: '复利期数：'
-      });
-    }
     this.setData({
       calcType
     });
@@ -153,6 +134,11 @@ Page({
     var yearly_interest = tmp4 * 100;
 
     this.setData({
+      borrowed_per_month, 
+      interest_per_month, 
+      amt_per_month, 
+      total_interest, 
+      total_amt, 
       nominal_yearly_interest: nominal_yearly_interest.toFixed(2) + "%",
       yearly_interest: yearly_interest.toFixed(2) + "%"
     });

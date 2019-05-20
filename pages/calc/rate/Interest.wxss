@@ -30,10 +30,20 @@
   padding-left: 32rpx;
 }
 
-.calcBtn {
+.picker {
+  padding: 0rpx 10rpx;
+}
+
+.calcContainer {
   margin-top: 40rpx;
   margin-left: 32rpx;
+  display: flex;
+}
+
+.calcBtn {
+  margin-left: 32rpx;
   margin-right: 32rpx;
+  flex: 1;
 }
 
 .resultCol {

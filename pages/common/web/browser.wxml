@@ -1,0 +1,2 @@
+<!--pages/common/web/browser.wxml-->
+<web-view src="{{url}}"></web-view>

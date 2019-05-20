@@ -7,20 +7,20 @@ var currentPageNum = PAGE_NUMBER
 
 Page({
   data: {
-    lunhouData: [],//列表显示数据
+    lunhouData: [], //列表显示数据
     houseIndex: 1,
     houseTypeArr: ["安居", "公租"],
     searchIndex: 0,
     searchTypeArr: ["姓名", "身份证", "回执号", "指定页码"]
   },
 
-  onLoad: function () {
+  onLoad: function() {
     this.firstLoad()
   },
   /**
-    * 生命周期函数--监听页面初次渲染完成
-    */
-  onReady: function () {
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
     // wx.getSystemInfo({
     //   success: function (res) {
     //     console.log("dongtaihuoqu:" + JSON.stringify(res))
@@ -32,12 +32,14 @@ Page({
     // })
     let that = this
     wx.getSystemInfo({
-      success({ windowHeight }) {
+      success({
+        windowHeight
+      }) {
         console.log("dongtaihuoqu:" + windowHeight)
 
         wx.createSelectorQuery().select('#lunhou').fields({
           size: true
-        }, function (res) {
+        }, function(res) {
           console.log(res)
           // that.setData({
           //   baseItemHeight: res.height
@@ -54,7 +56,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     var that = this
     //下拉刷新，清除旧数据
     var searchParam = {
@@ -69,7 +71,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     var that = this
     var searchParam = {
       waittype: parseInt(that.data.houseIndex) + 1,
@@ -78,15 +80,15 @@ Page({
     that.loadData(searchParam)
   },
 
-  resetData: function () {
+  resetData: function() {
     var that = this
     currentPageNum = PAGE_NUMBER
     that.setData({
-      lunhouData: [],//清除旧数据
+      lunhouData: [], //清除旧数据
     })
   },
 
-  firstLoad: function (reqQuery) {
+  firstLoad: function(reqQuery) {
     this.setData({
       houseIndex: 1
     })
@@ -97,7 +99,7 @@ Page({
       xingm: '',
     })
   },
-  loadData: function (reqQuery) {
+  loadData: function(reqQuery) {
     wx.showLoading({
       title: '数据加载中',
     })
@@ -112,7 +114,7 @@ Page({
         method: 'queryYgbLhmcList',
         pageSize: reqQuery.pageSize ? reqQuery.pageSize : PAGE_SIZE,
         pageNumber: reqQuery.pageNumber ? reqQuery.pageNumber : PAGE_NUMBER,
-        waittype: reqQuery.waittype ? reqQuery.waittype : '2',//2是公租房，1是安居房
+        waittype: reqQuery.waittype ? reqQuery.waittype : '2', //2是公租房，1是安居房
         xingm: reqQuery.xingm ? reqQuery.xingm : '',
         //以下非必要参数
         num: 0,
@@ -123,13 +125,13 @@ Page({
         // 'content-type': 'application/json; charset=utf-8' // 默认值。以json格式提交数据，用于POST请求
         'content-type': 'application/x-www-form-urlencoded' // 以query形式提交参数
       },
-      method: "POST",//GET
-      success: function (res) {
+      method: "POST", //GET
+      success: function(res) {
         var jsonData = res.data.rows;
         console.log("网络请求返回数据：", jsonData)
         var showData = that.data.lunhouData
-        if (showData && showData.length > 0) {//已有数据就追加
-          showData = showData.concat(jsonData)//添加集合数据
+        if (showData && showData.length > 0) { //已有数据就追加
+          showData = showData.concat(jsonData) //添加集合数据
         } else {
           showData = jsonData
         }
@@ -147,14 +149,14 @@ Page({
     })
   },
 
-  houseTypeChange: function (e) {
+  houseTypeChange: function(e) {
     var that = this
     var value = e.detail.value
     console.log('picker发送选择改变，携带值为', value)
     that.setData({
       houseIndex: value,
     })
-    that.resetData()//清除旧数据
+    that.resetData() //清除旧数据
     var searchParam = {
       waittype: parseInt(value) + 1
     }
@@ -162,7 +164,7 @@ Page({
 
   },
 
-  searchTypeChange: function (e) {
+  searchTypeChange: function(e) {
     var that = this
     var value = e.detail.value;
     console.log('picker发送选择改变，携带值为', value)
@@ -172,7 +174,7 @@ Page({
 
   },
 
-  onSearch: function (e) {
+  onSearch: function(e) {
     wx.showLoading({
       title: '数据加载中',
     })
@@ -180,25 +182,25 @@ Page({
     var value = e.detail.value
     console.log('confirm发送选择改变，携带值为', JSON.stringify(e))
     console.log('confirm发送选择改变，携带值为', value)
-    that.resetData()//清除旧数据
+    that.resetData() //清除旧数据
     var searchParam
     switch (parseInt(that.data.searchIndex)) {
-      case 0://姓名
+      case 0: //姓名
         searchParam = {
           xingm: value
         }
         break;
-      case 1://身份证
+      case 1: //身份证
         searchParam = {
           idcard: value
         }
         break;
-      case 2://回执号
+      case 2: //回执号
         searchParam = {
           shoulbahzh: value
         }
         break;
-      case 3://指定页码
+      case 3: //指定页码
         searchParam = {
           pageNumber: value
         }
@@ -207,5 +209,17 @@ Page({
     searchParam.waittype = parseInt(that.data.houseIndex) + 1
     that.loadData(searchParam)
   },
+  doItemClick: function(e) {
+    console.log('lxh',e);
+    const {
+      item: {
+        WAIT_TPYE,
+        LHMC_ID
+      }={}
+    } = e.target.dataset
+    wx.navigateTo({
+      url: `../common/web/browser?id=${LHMC_ID}&waittype=${WAIT_TPYE}`,
+    })
+  }
 
 })
