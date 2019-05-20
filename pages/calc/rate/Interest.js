@@ -9,7 +9,7 @@ Page({
     titleTxt2: '分期数：',
     titleTxt3: '一次性手续费（%）：',
     titleTxt4: '每期手续费（%）：',
-    calcType: 1,
+    calcType: 0,
     calcArray: ['分期', '复利'],
     v1: '',
     v2: '',
@@ -137,7 +137,7 @@ Page({
 
     var one_time_interest = (parseFloat(amt) * parseFloat(fee_one_time) / 100).toFixed(2); //一次性手续费
     var borrowed_per_month = (parseFloat(amt) / parseFloat(period)).toFixed(2); //每月还本金
-    var interest_per_month = (parseFloat(amt) * parseFloat(interest) / 100).toFixed(2); //每月还利息
+    var interest_per_month = (parseFloat(amt) * parseFloat(interest||'0') / 100).toFixed(2); //每月还利息
     var amt_per_month = parseFloat(borrowed_per_month) + parseFloat(interest_per_month); //每月还款额
     //总还款利息
     var total_interest = parseFloat(one_time_interest) + (interest_per_month * period);
