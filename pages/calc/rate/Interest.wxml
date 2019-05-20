@@ -1,0 +1,32 @@
+<!--pages/calc/rate/Interest.wxml-->
+<view>
+  <view class='tableData'>
+
+    <view class='titleCol'>
+      <text class='bline title' id='amt'>{{titleTxt1}}</text>
+      <text class='bline title' id='period'>{{titleTxt2}}</text>
+      <text class='bline title' id='fee_one_time'>{{titleTxt3}}</text>
+      <text class='bline title' id='interest'>{{titleTxt4}}</text>
+    </view>
+
+    <view class='valueCol'>
+      <input class='bline value' bindinput='bindInputEvent' id='v1' placeholder='请输入值' />
+      <input class='bline value' bindinput='bindInputEvent' id='v2' placeholder='请输入值' />
+      <input class='bline value' bindinput='bindInputEvent' id='v3' placeholder='请输入值' />
+      <input class='bline value' bindinput='bindInputEvent' id='v4' placeholder='请输入值' />
+    </view>
+  </view>
+  <view>
+    <picker bindchange="calcTypeChange" value="{{calcType}}" range="{{calcArray}}">
+      <view class="picker">计算类型：{{calcArray[calcType]}}</view>
+    </picker>
+
+    <button bindtap='doCalc' class='calcBtn'>计算</button>
+  </view>
+
+  <view class='resultCol'>
+    <text>名义年化：{{nominal_yearly_interest}}</text>
+    <text>实际年化：{{yearly_interest}}</text>
+  </view>
+
+</view>

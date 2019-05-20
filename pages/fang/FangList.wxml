@@ -1,0 +1,44 @@
+<!--pages/fang/FangList.wxml-->
+<view class="container index">
+
+  <view class='picker-rooter'>
+    <picker class="picker" bindchange="houseTypeChange" value="{{houseIndex}}" range="{{houseTypeArr}}">
+      <button class="picker-text">
+        轮候房型：{{houseTypeArr[houseIndex]}}
+      </button>
+    </picker>
+
+    <picker class="picker" bindchange="searchTypeChange" value="{{searchIndex}}" range="{{searchTypeArr}}">
+      <button class="picker-text">
+        搜索方式：{{searchTypeArr[searchIndex]}}
+      </button>
+    </picker>
+
+    <view class="searchbox">
+      <text class="searchbox-text">搜索:</text>
+      <input class="searchbox-input" maxlength="18" placeholder="输入搜索内容" confirm-type='search' bindconfirm='onSearch' />
+    </view>
+
+  </view>
+
+  <view class="container lunhou-list" id='lunhou'>
+
+    <view class="lunhou-item lunhou-item-column">
+      <text style='font-weight:bold;'>序号</text>
+      <text style='font-weight:bold;'>姓名</text>
+      <text style='font-weight:bold;'>排名</text>
+      <text style='font-weight:bold;'>回执号</text>
+    </view>
+
+    <block wx:for="{{lunhouData}}" wx:key="{{index + 1}}" wx:for-item="da">
+      <view class="lunhou-item">
+        <text>{{index + 1}}</text>
+        <text>{{da.xingmShortStr}}</text>
+        <text>{{da.PAIX}}</text>
+        <text>{{da.SHOULHZH}}</text>
+      </view>
+    </block>
+
+  </view>
+
+</view>

@@ -1,0 +1,44 @@
+/* pages/calc/rate/Interest.wxss */
+
+.tableData {
+  display: flex;
+}
+
+.titleCol {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.valueCol {
+  flex: 1;
+}
+
+.bline {
+  height: 62rpx;
+  width: 100%;
+  border-bottom: 1rpx solid darkgrey;
+}
+
+.title {
+  text-align: end;
+  margin-left: 32rpx;
+}
+
+.value {
+  text-align: start;
+  padding-left: 32rpx;
+}
+
+.calcBtn {
+  margin-top: 40rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+}
+
+.resultCol {
+  margin-top: 40rpx;
+  margin-left: 32rpx;
+  display: flex;
+  flex-direction: column;
+}

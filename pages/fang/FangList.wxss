@@ -1,0 +1,59 @@
+/* pages/fang/FangList.wxss */
+.index {
+  padding: 0 0;
+  min-height: 1200rpx;
+}
+
+.picker-rooter {
+  position: fixed;
+  width: 100%;
+  background: white;
+}
+
+.picker {
+  line-height: 1;
+  width: 50%;
+  float: left;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+
+.picker-text {
+  font-size: 12pt;
+  padding: 20rpx 0;
+  margin: 10rpx;
+  line-height: 1;
+}
+
+.searchbox {
+  width: 100%;
+  padding: 60rpx;
+}
+
+.searchbox-text {
+  float: left;
+}
+
+.searchbox-input {
+  float: left;
+  margin-left: 20rpx;
+}
+
+.lunhou-list {
+  margin-top: 160rpx;
+  padding: 40rpx;
+  width: 100%;
+}
+
+.lunhou-item {
+  margin: 10rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx;
+}
+
+.lunhou-item-column text {
+  width: 25%;
+}

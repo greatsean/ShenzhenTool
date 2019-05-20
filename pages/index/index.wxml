@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view>
+  <button bindtap="jumpLunhou">
+    轮候查询
+  </button>
+  <button bindtap="jumpLilv">
+    利率计算
+  </button>
+</view>
