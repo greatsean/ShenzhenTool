@@ -1,0 +1,17 @@
+<!--pages/school/SchoolList.wxml-->
+<view class='rootContainer'>
+  <view class='topContainer'>
+    <view class='searchLine'>
+      <text>搜名字：</text>
+      <input id='searchBox' bindinput='bindinput' bindconfirm='onSearchAction' placeholder='输入名字模糊检索' confirm-type='search' />
+    </view>
+  </view>
+
+  <view class='list'>
+    <view class='list-item' data-item="{{item}}" bindtap='onItemClick' wx:for="{{schoolData}}" for-item="item" wx:key="{{id}}">
+
+      <text>{{item.name}}</text>
+
+    </view>
+  </view>
+</view>

@@ -7,6 +7,9 @@
     <button class='listItem' bindtap="jumpLilv">
       利率计算
     </button>
+    <button class='listItem' bindtap="jumpYuanxiao">
+      院校检索
+    </button>
   </view>
 
 </view>

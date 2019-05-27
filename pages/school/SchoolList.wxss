@@ -1,0 +1,39 @@
+/* pages/school/SchoolList.wxss */
+
+.rootContainer {
+  display: flex;
+}
+
+.topContainer {
+  margin-top: 0;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  padding: 32rpx;
+  border-bottom: rgba(0, 65, 139, 0.103) solid 1rpx;
+}
+
+.searchLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchLine input {
+  flex: 1;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 98rpx;
+  padding: 32rpx;
+}
+
+.list-item {
+}
+
+.list-item text {
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+}

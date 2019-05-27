@@ -32,4 +32,11 @@ Page({
     })
   },
 
+  jumpYuanxiao: function (e) {
+    console.log('lxh>>>.', e);
+    wx.navigateTo({
+      url: '../school/SchoolList',
+    })
+  },
+
 })
